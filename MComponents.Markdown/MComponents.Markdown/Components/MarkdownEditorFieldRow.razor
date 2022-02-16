@@ -8,10 +8,12 @@
 
 @if (CustomMarkdownEditorType != null)
 {
-    <MComplexPropertyField TProperty="string" Property="@Property">
+    <MComplexPropertyField @ref="mCustomField" TProperty="string" Property="@Property">
 
-        <Template Context="tmplContext">
-            <DynamicComponent Type="@CustomMarkdownEditorType" />
+        <Template>
+            <CascadingValue Value="context">
+                <DynamicComponent Type="@CustomMarkdownEditorType" />
+            </CascadingValue>
         </Template>
 
     </MComplexPropertyField>
@@ -40,6 +42,10 @@ else
 
     protected string mMarkdownText;
     protected IMPropertyInfo mPropertyInfo;
+
+ 
+    protected IMField mCustomField;
+
 
     protected override void OnParametersSet()
     {
