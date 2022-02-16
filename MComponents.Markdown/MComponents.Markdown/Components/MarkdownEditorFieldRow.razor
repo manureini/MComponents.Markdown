@@ -1,0 +1,57 @@
+﻿@using System.Linq.Expressions
+@using MComponents.MForm
+@using MComponents
+@using Microsoft.AspNetCore.Components.Forms
+
+
+@inject IStringLocalizer L
+
+@if (CustomMarkdownEditorType != null)
+{
+    <MComplexPropertyField TProperty="string" Property="@Property">
+
+        <Template Context="tmplContext">
+            <DynamicComponent Type="@CustomMarkdownEditorType" />
+        </Template>
+
+    </MComplexPropertyField>
+}
+else
+{
+    <MField Property="@Property" style="min-height: 45vh;" />
+}
+
+<MarkdownMFieldGenerator Text=@mMarkdownText Label="@L["Preview"]" />
+
+
+@code {
+
+    public static Type CustomMarkdownEditorType;
+
+    [CascadingParameter]
+    public EditContext EditContext { get; set; }
+
+    [CascadingParameter]
+    public IMForm Form { get; set; }
+
+    [Parameter]
+    public string Property { get; set; }
+
+
+    protected string mMarkdownText;
+    protected IMPropertyInfo mPropertyInfo;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        mPropertyInfo = ReflectionHelper.GetIMPropertyInfo(Form.ModelType, Property, typeof(string));
+        Update();
+    }
+
+    protected void Update()
+    {
+        mMarkdownText = (string)mPropertyInfo.GetValue(EditContext.Model);
+    }
+
+
+}
