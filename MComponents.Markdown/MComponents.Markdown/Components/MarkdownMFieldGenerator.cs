@@ -33,14 +33,15 @@ namespace MComponents.Markdown
 
                 builder.OpenElement(50, "div");
                 builder.AddAttribute(51, "class", "m-markdown-container");
-                builder.AddContent(52, mHtml);
+                builder.AddContent(52, MarkdownHelper.RenderMarkdown(Text));
                 builder.CloseElement();
             };
         }
 
         protected override void OnParametersSet()
         {
-            mHtml = MarkdownHelper.RenderMarkdown(Text);
+          //  mHtml = MarkdownHelper.RenderMarkdown(Text);
+          //not working in accre forms
         }
     }
 }

@@ -8,7 +8,7 @@
 
 @if (CustomMarkdownEditorType != null)
 {
-    <MComplexPropertyField @ref="mCustomField" TProperty="string" Property="@Property">
+    <MComplexPropertyField @ref="mCustomField" TProperty="string" Property="@Property" Attributes="Attributes" ExtendAttributes="ExtendAttributes">
 
         <Template>
             <CascadingValue Value="context">
@@ -39,11 +39,15 @@ else
     [Parameter]
     public string Property { get; set; }
 
+    [Parameter]
+    public Attribute[] Attributes { get; set; }
+
+    [Parameter]
+    public bool ExtendAttributes { get; set; }
 
     protected string mMarkdownText;
     protected IMPropertyInfo mPropertyInfo;
 
- 
     protected IMField mCustomField;
 
 
