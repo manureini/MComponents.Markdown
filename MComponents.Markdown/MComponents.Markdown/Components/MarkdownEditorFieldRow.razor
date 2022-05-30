@@ -6,7 +6,7 @@
 
 @inject IStringLocalizer L
 
-@if (CustomMarkdownEditorType != null)
+@if (UseCustomEditor && CustomMarkdownEditorType != null)
 {
     <MComplexPropertyField @ref="mCustomField" TProperty="string" Property="@Property" Attributes="Attributes" ExtendAttributes="ExtendAttributes">
 
@@ -44,6 +44,9 @@ else
 
     [Parameter]
     public bool ExtendAttributes { get; set; }
+
+    [Parameter]
+    public bool UseCustomEditor { get; set; } = true;
 
     protected string mMarkdownText;
     protected IMPropertyInfo mPropertyInfo;
