@@ -76,15 +76,6 @@ namespace MComponents.Markdown
             builder.OpenComponent<MTabs>(70);
             builder.AddAttribute(114, nameof(MTabs.ChildContent), content);
             builder.CloseComponent(); //mtabs
-
-            /*
-            builder.OpenElement(25, "button");
-            builder.AddAttribute(26, "class", "m-btn m-btn-primary");
-            builder.AddAttribute(27, "type", "button");
-            builder.AddAttribute(28, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, OnSaveClick));
-            builder.AddContent(29, L["Save"]);
-            builder.CloseElement();
-            */
         }
     }
 }
