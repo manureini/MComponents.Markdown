@@ -1,7 +1,5 @@
-﻿using Markdig;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using System;
 
 namespace MComponents.Markdown
 {
