@@ -11,14 +11,12 @@ namespace MComponents.Markdown
         [Parameter]
         public string Label { get; set; }
 
-        protected MarkupString mHtml;
+        protected MarkupString? mHtml;
 
         protected string mOldText;
 
         public MarkdownMFieldGenerator()
         {
-            mHtml = MarkdownHelper.RenderMarkdown(Text);
-
             Template = (context) => (builder) =>
             {
                 if (Label != null)
@@ -27,6 +25,11 @@ namespace MComponents.Markdown
                     builder.AddAttribute(31, "class", "col-sm-12 col-form-label");
                     builder.AddContent(32, Label);
                     builder.CloseElement();
+                }
+
+                if (mHtml == null)
+                {
+                    mHtml = MarkdownHelper.RenderMarkdown(Text);
                 }
 
                 builder.OpenElement(50, "div");
