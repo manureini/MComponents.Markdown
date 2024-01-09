@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0</TargetFrameworks>
+		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -9,10 +9,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Text.Json" Version="7.0.3" />
-		<PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.13" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.13" />
-		<PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.13" />
+		<PackageReference Include="System.Text.Json" Version="8.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Markdig" Version="0.33.0" />
+		<PackageReference Include="Markdig" Version="0.34.0" />
 	</ItemGroup>
 
 	<ItemGroup>
